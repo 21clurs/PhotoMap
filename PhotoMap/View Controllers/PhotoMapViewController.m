@@ -7,10 +7,11 @@
 //
 
 #import "PhotoMapViewController.h"
+#import "LocationsViewController.h"
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@interface PhotoMapViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PhotoMapViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) UIImage *photo;
 
@@ -46,21 +47,29 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
     
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     self.photo = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
     [self performSegueWithIdentifier:@"tagSegue" sender:nil];
 }
 
-/*
+- (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude{
+    [self.navigationController popToViewController:self animated:YES];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"tagSegue"]){
+        LocationsViewController *locationViewController = [segue destinationViewController];
+        locationViewController.delegate = self;
+    }
 }
-*/
+
 
 @end
