@@ -18,6 +18,7 @@
 		6A22E5FE20F2A4AE0052F3C6 /* FullImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A22E5FD20F2A4AE0052F3C6 /* FullImageViewController.m */; };
 		A81105B65E41CA038B04C843 /* libPods-PhotoMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CBCF83EE4466FF76810F69 /* libPods-PhotoMap.a */; };
 		F90D40CF24B61DE900F0EDE3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90D40CE24B61DE900F0EDE3 /* MapKit.framework */; };
+		F94CFC2724B63B8A00765E09 /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F94CFC2624B63B8A00765E09 /* PhotoAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		6A22E5FD20F2A4AE0052F3C6 /* FullImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FullImageViewController.m; sourceTree = "<group>"; };
 		B7CBCF83EE4466FF76810F69 /* libPods-PhotoMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90D40CE24B61DE900F0EDE3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F94CFC2524B63B8A00765E09 /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
+		F94CFC2624B63B8A00765E09 /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				6A22E5EA20F2A3DA0052F3C6 /* main.m */,
 				6A22E5F420F2A4570052F3C6 /* View Controllers */,
 				6A22E5F820F2A47D0052F3C6 /* Views */,
+				F94CFC2524B63B8A00765E09 /* PhotoAnnotation.h */,
+				F94CFC2624B63B8A00765E09 /* PhotoAnnotation.m */,
 			);
 			path = PhotoMap;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				6A22E5F320F2A41B0052F3C6 /* PhotoMapViewController.m in Sources */,
 				6A22E5FB20F2A4A00052F3C6 /* LocationsViewController.m in Sources */,
 				6A22E5FE20F2A4AE0052F3C6 /* FullImageViewController.m in Sources */,
+				F94CFC2724B63B8A00765E09 /* PhotoAnnotation.m in Sources */,
 				6A22E5F720F2A4790052F3C6 /* LocationCell.m in Sources */,
 				6A22E5DD20F2A3D90052F3C6 /* AppDelegate.m in Sources */,
 			);

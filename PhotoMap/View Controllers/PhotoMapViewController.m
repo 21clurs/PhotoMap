@@ -8,6 +8,7 @@
 
 #import "PhotoMapViewController.h"
 #import "LocationsViewController.h"
+#import "PhotoAnnotation.h"
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
@@ -61,10 +62,26 @@
     
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude.floatValue, longitude.floatValue);
     
-    MKPointAnnotation *annotation = [MKPointAnnotation new];
-    annotation.coordinate = coordinate;
-    annotation.title = @"Picture";
-    [self.mapView addAnnotation:annotation];
+    PhotoAnnotation *point = [[PhotoAnnotation alloc] init];
+    point.coordinate = coordinate;
+    point.photo = [self resizeImage:self.photo withSize:CGSizeMake(50.0, 50.0)];
+    
+    [self.mapView addAnnotation:point];
+    [self.navigationController popViewControllerAnimated:true];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+     return newImage;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
